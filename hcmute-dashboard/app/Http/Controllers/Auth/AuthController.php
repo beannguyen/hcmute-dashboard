@@ -8,7 +8,7 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Request;
+use \Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -80,7 +80,7 @@ class AuthController extends Controller {
 		}
 	}
 
-	public function redirectToProvider(AuthenticateUser $authenticateUser, Request $request ,$provider = 'google')
+	public function redirectToProvider(AuthenticateUser $authenticateUser, Request $request , $provider = null)
 	{
 		return $authenticateUser->execute($request->all(), $this, $provider);
 	}

@@ -43,6 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/global/plugins/bootstrap-social/bootstrap-social.css" />
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -104,24 +105,10 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <div class="login-options">
             <h4>Or login with</h4>
-            <ul class="social-icons">
-                <li>
-                    <a class="facebook" data-original-title="facebook" href="#">
-                    </a>
-                </li>
-                <li>
-                    <a class="twitter" data-original-title="Twitter" href="#">
-                    </a>
-                </li>
-                <li>
-                    <a class="googleplus" data-original-title="Goole Plus" href="{{ url('google/redirect') }}">
-                    </a>
-                </li>
-                <li>
-                    <a class="linkedin" data-original-title="Linkedin" href="#">
-                    </a>
-                </li>
-            </ul>
+            <a href="{{ url('login/google') }}" class="btn btn-block red btn-google-plus">
+                <i class="fa fa-google-plus"></i>
+                Sign in with Google
+            </a>
         </div>
         <div class="forget-password">
             <h4>Quên mật khẩu ?</h4>

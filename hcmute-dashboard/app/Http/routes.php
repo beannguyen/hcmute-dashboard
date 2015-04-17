@@ -24,7 +24,7 @@ Route::group(['middleware' => 'guest'], function() {
 	Route::post('/password/reset', 'Auth\PasswordController@postReset');
 
 	// oauth service provider
-	Route::get('{provider?}/redirect', 'Auth\AuthController@redirectToProvider');
+	Route::get('login/{provider?}', 'Auth\AuthController@redirectToProvider');
 });
 
 // authenticate required
@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function()
 
 Route::get('/register', function() {
 
-	return phpinfo();
+	return Input::all();
 
 });
 
