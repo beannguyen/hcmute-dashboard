@@ -37,7 +37,13 @@ return [
 	'google' => [
 		'client_id' => '997167985443-d2casj66d1u8gnsfn2pl6duf95p1thid.apps.googleusercontent.com',
 		'client_secret' => 'kpABOaATZB1sk9UmZG8afZzU',
-		'redirect' => 'http://dashboard.baigiai.vn/google/callback',
+		'redirect' => 'http://dashboard.baigiai.vn/google/redirect',
+	],
+
+	'twitter' => [
+		'client_id' => 'sBWJQOWYuQQZzPo3SN6yxqgCP',
+		'client_secret' => '8gGNW9cb5nu5PHMJWyyJucN8pBawx2IuM4TXDAVyMgfOyDb4hI',
+		'redirect' => 'http://dashboard.baigiai.vn/twitter/redirect',
 	]
 
 ];

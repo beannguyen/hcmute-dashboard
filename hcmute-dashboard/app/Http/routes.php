@@ -24,8 +24,7 @@ Route::group(['middleware' => 'guest'], function() {
 	Route::post('/password/reset', 'Auth\PasswordController@postReset');
 
 	// oauth service provider
-	Route::get('{provider}/redirect', 'Auth\AuthController@redirectToProvider');
-	Route::get('{provider}/callback', 'Auth\AuthController@handleProviderCallback');
+	Route::get('{provider?}/redirect', 'Auth\AuthController@redirectToProvider');
 });
 
 // authenticate required
@@ -64,16 +63,7 @@ Route::group(['middleware' => 'auth'], function()
 
 Route::get('/register', function() {
 
-	$user = new App\User();
-	$user->name = "Bean Nguyen";
-	$user->email = "beanchanel@gmail.com";
-	$user->password = Hash::make('admin');
-	$user->username = "beannguyen";
-	$user->group_id = 1;
-	$user->active = 1;
-	$user->save();
-
-	return $user->all();
+	return phpinfo();
 
 });
 

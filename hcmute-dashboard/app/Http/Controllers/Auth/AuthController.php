@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Auth;
 
+use App\AuthenticateUser;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
@@ -7,6 +8,7 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -78,31 +80,14 @@ class AuthController extends Controller {
 		}
 	}
 
-	public function redirectToProvider($provider = 'google')
+	public function redirectToProvider(AuthenticateUser $authenticateUser, Request $request ,$provider = 'google')
 	{
-		return Socialite::with($provider)->redirect();
+		return $authenticateUser->execute($request->all(), $this, $provider);
 	}
 
-	public function handleProviderCallback($provider = 'google')
-	{
-		$user = Socialite::with($provider)->user();
+	public function userHasLoggedIn($user) {
 
-		if ( !is_null($user) ) {
-			$count = User::where('email', $user->getEmail())->count();
-			if ( $count > 0 ) {
-				// user already exists
-				$usr = DB::table('users')->where('email', 'vmod.game@gmail.com')->first();
-				// log user into system
-				Auth::loginUsingId($usr->id);
-
-				return redirect()->intended('/');
-			} else {
-				// user not exists, register new user
-				return redirect()->intended('dashboard')->with('error', '<strong>Email không tồn tại trong hệ thống<strong><br /><em>Vui lòng liên hệ quản trị viên để biết thêm chi tiết!</em>');
-			}
-		}
-
-		// $user->token;
+		return redirect('/');
 	}
 
 	public function logout()

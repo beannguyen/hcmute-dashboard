@@ -16,10 +16,12 @@ class CreateUsersTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->string('email')->unique();
-			$table->string('password', 60);
-			$table->string('username',60);
-			$table->integer('group_id');
+			$table->string('email')->unique()->nullable();
+			$table->string('password', 60)->nullable();
+			$table->string('username',60)->nullable();
+			$table->integer('group_id')->nullable();
+			$table->string('provider')->nullable();
+			$table->string('provider_id')->unique();
 			$table->integer('active')->default(0);
 			$table->rememberToken();
 			$table->timestamps();
