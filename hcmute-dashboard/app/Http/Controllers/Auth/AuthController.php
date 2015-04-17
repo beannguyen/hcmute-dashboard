@@ -85,7 +85,7 @@ class AuthController extends Controller {
 
 	public function handleProviderCallback($provider = 'google')
 	{
-		$user = Socialize::with($provider)->user();
+		$user = Socialite::with($provider)->user();
 
 		if ( !is_null($user) ) {
 			$count = User::where('email', $user->getEmail())->count();

@@ -37,7 +37,7 @@ return [
 	'google' => [
 		'client_id' => '997167985443-d2casj66d1u8gnsfn2pl6duf95p1thid.apps.googleusercontent.com',
 		'client_secret' => 'kpABOaATZB1sk9UmZG8afZzU',
-		'redirect' => 'http://dashboard.baigiai.vn/oauth/callback',
+		'redirect' => 'http://dashboard.baigiai.vn/google/callback',
 	]
 
 ];
