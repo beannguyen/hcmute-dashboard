@@ -78,14 +78,14 @@ class AuthController extends Controller {
 		}
 	}
 
-	public function redirectToProvider()
+	public function redirectToProvider($provider = 'google')
 	{
-		return Socialite::with('google')->redirect();
+		return Socialite::with($provider)->redirect();
 	}
 
-	public function handleProviderCallback()
+	public function handleProviderCallback($provider = 'google')
 	{
-		$user = Socialize::with('google')->user();
+		$user = Socialize::with($provider)->user();
 
 		if ( !is_null($user) ) {
 			$count = User::where('email', $user->getEmail())->count();
